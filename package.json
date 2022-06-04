@@ -1,8 +1,21 @@
 {
-  "name": "WesselBot",
-  "version": "1.0.0",
+  "name": "wesselbot",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
+  "author": {
+    "name": "Michal (Scraayp)",
+    "email": "scraayp@gmail.com",
+    "url": "https://scraayp.xyz"
+  },
+  "bugs": {
+    "email": "scraayp@gmail.com",
+    "url": "https://github.com/scraayp/wesselbot/issues"
+  },
+  "readme": "README.md",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
     "@discordjs/rest": "^0.4.1",

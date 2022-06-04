@@ -20,8 +20,8 @@ client.once("ready", () => {
 let vote = 0;
 
 client.on("interactionCreate", async (interaction) => {
-  if(interaction.isButton()){
-    if(interaction.customId == "votekick"){
+  if (interaction.isButton()) {
+    if (interaction.customId == "votekick") {
       vote++;
     }
   }
@@ -49,11 +49,14 @@ client.on("interactionCreate", async (interaction) => {
     );
 
     await interaction.reply({ embeds: [embed], components: [row] });
-  } else if(commandName === "wesselvoicemute"){
+  } else if (commandName === "wesselvoicemute") {
     const embed = new MessageEmbed()
       .setColor("ORANGE")
-      .setDescription("Wessel wordt nu gemute.")
-      interaction.guild.
+      .setDescription("Wessel wordt nu gemute.");
+    (await interaction.guild.members.fetch("676749014259073043")).voice.setMute(
+      true,
+      "Command gerunt."
+    );
   }
 });
 
