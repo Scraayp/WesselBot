@@ -5,6 +5,7 @@ const {
   MessageEmbed,
   MessageActionRow,
   MessageButton,
+  ButtonInteraction,
 } = require("discord.js");
 const { token } = require("./config.json");
 
@@ -16,7 +17,15 @@ client.once("ready", () => {
   console.log("Ready!");
 });
 
+let vote = 0;
+
 client.on("interactionCreate", async (interaction) => {
+  if(interaction.isButton()){
+    if(interaction.customId == "votekick"){
+      vote++;
+    }
+  }
+
   if (!interaction.isCommand()) return;
 
   const { commandName } = interaction;
@@ -24,9 +33,9 @@ client.on("interactionCreate", async (interaction) => {
   if (commandName === "ping") {
     await interaction.reply("Pong!");
   } else if (commandName === "wesselisgay") {
-    await interaction.reply("Klopt.");
+    await interaction.reply("Klopt. Wessel is gay.");
   } else if (commandName === "wesselisnotgay") {
-    await interaction.reply("Klopt niet.");
+    await interaction.reply("Klopt niet. Wessel is nog steeds gay.");
   } else if (commandName === "wesselvotekick") {
     const embed = new MessageEmbed()
       .setColor("ORANGE")
@@ -34,16 +43,21 @@ client.on("interactionCreate", async (interaction) => {
 
     const row = new MessageActionRow().addComponents(
       new MessageButton()
-        .setCustomId("primary")
+        .setCustomId("votekick")
         .setLabel("Vote kick")
         .setStyle("PRIMARY")
     );
 
     await interaction.reply({ embeds: [embed], components: [row] });
+  } else if(commandName === "wesselvoicemute"){
+    const embed = new MessageEmbed()
+      .setColor("ORANGE")
+      .setDescription("Wessel wordt nu gemute.")
+      interaction.guild.
   }
 });
 
 // Login to Discord with your client's token
-client.login(token); 
+client.login(token);
 
 require("./deploy-commands");
