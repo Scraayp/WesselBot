@@ -16,6 +16,8 @@ Then fill in the following template
 }
 ```
 
+_Do not copy the comments (//) in the config.json file_
+
 ## Installation
 
 **Before following this guide, you need to follow the [configuration guide](#configuration).**
