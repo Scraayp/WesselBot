@@ -68,6 +68,14 @@ client.on("interactionCreate", async (interaction) => {
         i.update({ embeds: [], content: `**${vote}**/3 votes tot nu toe.` });
       }
     });
+
+    collector.on("end", (collected) =>
+      interaction.editReply({
+        content: "Vote kick party gestopt!",
+        embeds: [],
+        components: [],
+      })
+    );
   } else if (commandName === "wesselvoicemute") {
     const embed = new MessageEmbed()
       .setColor("ORANGE")
