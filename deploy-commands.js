@@ -16,6 +16,9 @@ const commands = [
   new SlashCommandBuilder()
     .setName("wesselvotekick")
     .setDescription("Wessel kicken"),
+  new SlashCommandBuilder()
+    .setName("wesselvoicemute")
+    .setDescription("Mute wessel van voice chat"),
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: "9" }).setToken(token);
