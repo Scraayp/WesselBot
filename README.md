@@ -10,13 +10,11 @@ Then fill in the following template
 
 ```json
 {
-  "clientId": "", // The id of your bot.
-  "guildId": "", // The id of the guild you want to publish the commands to
-  "token": "" // The token of your bot.
+  "clientId": "",
+  "guildId": "",
+  "token": ""
 }
 ```
-
-_Do not copy the comments (//) in the config.json file_
 
 ## Installation
 
