@@ -53,10 +53,6 @@ client.on("interactionCreate", async (interaction) => {
       if (i.customId == "votekick") {
         vote++;
         if (vote > 2) {
-          await interaction.guild.members
-            .fetch("676749014259073043")
-            .send(await interaction.guild.members.fetch("676749014259073043"))
-            .kick("Je bent gevotekicked.");
           await interaction.editReply({
             content: "**Wessel is gekicked!**",
             components: [],
