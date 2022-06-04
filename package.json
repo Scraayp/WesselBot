@@ -14,7 +14,8 @@
   },
   "readme": "README.md",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "pm2": "pm2 start index.js --name wesselbot --watch"
   },
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
