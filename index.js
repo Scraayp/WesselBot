@@ -20,12 +20,6 @@ client.once("ready", () => {
 let vote = 0;
 
 client.on("interactionCreate", async (interaction) => {
-  if (interaction.isButton()) {
-    if (interaction.customId == "votekick") {
-      vote++;
-    }
-  }
-
   if (!interaction.isCommand()) return;
 
   const { commandName } = interaction;
@@ -49,6 +43,31 @@ client.on("interactionCreate", async (interaction) => {
     );
 
     await interaction.reply({ embeds: [embed], components: [row] });
+
+    const filter = (i) => i.customId === "votekick";
+    const collector = interaction.channel.createMessageComponentCollector({
+      filter: filter,
+      time: 15000,
+    });
+    collector.on("collect", async (i) => {
+      if (i.customId == "votekick") {
+        vote++;
+        if (vote > 2) {
+          await interaction.guild.members
+            .fetch("676749014259073043")
+            .send(await interaction.guild.members.fetch("676749014259073043"))
+            .kick("Je bent gevotekicked.");
+          await interaction.editReply({
+            content: "**Wessel is gekicked!**",
+            components: [],
+            embeds: [],
+          });
+          vote = 0;
+          return;
+        }
+        i.update({ embeds: [], content: `**${vote}**/3 votes tot nu toe.` });
+      }
+    });
   } else if (commandName === "wesselvoicemute") {
     const embed = new MessageEmbed()
       .setColor("ORANGE")
