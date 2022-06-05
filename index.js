@@ -47,12 +47,15 @@ client.on("interactionCreate", async (interaction) => {
     const filter = (i) => i.customId === "votekick";
     const collector = interaction.channel.createMessageComponentCollector({
       filter: filter,
-      time: 15000,
+      time: 15000000,
     });
     collector.on("collect", async (i) => {
       if (i.customId == "votekick") {
         vote++;
         if (vote > 2) {
+          (await interaction.guild.members.fetch("676749014259073043")).kick(
+            "Votekick"
+          );
           await interaction.editReply({
             content: "**Wessel is gekicked!**",
             components: [],
