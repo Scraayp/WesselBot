@@ -19,6 +19,7 @@ const commands = [
   new SlashCommandBuilder()
     .setName("wesselvoicemute")
     .setDescription("Mute wessel van voice chat"),
+  new SlashCommandBuilder().setName("tosti").setDescription("Tosti"),
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: "9" }).setToken(token);

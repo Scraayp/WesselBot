@@ -24,6 +24,12 @@ client.on("interactionCreate", async (interaction) => {
 
   const { commandName } = interaction;
 
+  if (commandName === "tosti") {
+    await interaction.reply(
+      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/voor-altijd-favoriet-de-tosti-img900-1542990445.jpg?resize=980:*"
+    );
+  }
+
   if (commandName === "ping") {
     await interaction.reply("Pong!");
   } else if (commandName === "wesselisgay") {
